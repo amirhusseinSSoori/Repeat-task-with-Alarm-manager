@@ -17,11 +17,11 @@ class AlarmHandler(var _Context: Context) {
         val intent = Intent(_Context, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(_Context, 0, intent, 0)
         val am = _Context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        //repeat  task in 3 minutes
+        //repeat  task in 5 minutes
         am.setRepeating(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            10 * 100.toLong(),
-            1000 * 60 * 5.toLong(),
+            10 * 100,
+            1000 * 60 * 5,
             pendingIntent
         )
     }
